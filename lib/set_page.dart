@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:study_app/flash_card_page.dart';
-import 'dart:math';
 
 
 // This page is for viewing all cards in a flash card set
@@ -47,7 +46,7 @@ class _SetPageState extends State<SetPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text("set page"), backgroundColor: Colors.cyan),
+      appBar: AppBar(title: const Text("set page")),
       body: Column(
         children: [
           Padding(

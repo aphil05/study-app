@@ -49,8 +49,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("home page"),
-        backgroundColor: const Color.fromARGB(255, 172, 168, 244),
+        title: const Text("home page"),
       ),
 
       body: Column(
@@ -65,11 +64,18 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-
           ElevatedButton(
             onPressed: createNewSet,
             child: const Text("create new set"),
           ),
+ Container(
+decoration: BoxDecoration(
+  image: DecorationImage(
+    image: AssetImage('images/purple aura background.jpg'),
+    fit: BoxFit.cover,),
+),
+),
+
           Expanded(
             child: ListView.builder(
               itemCount: sets.length,
@@ -87,7 +93,7 @@ class _HomeState extends State<Home> {
                 );
               },
             ),
-          ),
+           ),
         ],
       ),
     );
@@ -99,3 +105,4 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 }
+
