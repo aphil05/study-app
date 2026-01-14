@@ -74,9 +74,12 @@ class _SetPageState extends State<SetPage> {
                 padding: const EdgeInsetsGeometry.all(12),
                 child: TextField(
                   controller: setQuestionController,
+                  style: const TextStyle(color: Colors.black),
+                  cursorColor: Colors.black,
                   decoration: InputDecoration(
                     labelText: "Question",
                     hintText: "___ is the powerhouse of the cell",
+                    hintStyle: const TextStyle(color: Colors.black54),
                   ),
                   onChanged: (value) {
                     setState(() {
@@ -87,13 +90,16 @@ class _SetPageState extends State<SetPage> {
               ),
           // creates a new flash card
           if (answerBar)
-            Padding(
+          Padding(
               padding: const EdgeInsets.all(12),
               child: TextField(
                 controller: setAnswerController,
+                style: const TextStyle(color: Colors.black),
+                cursorColor: Colors.black,
                 decoration: const InputDecoration(
                   labelText: "Answer",
                   hintText: "Mitochondria",
+                  hintStyle: TextStyle(color: Colors.black54),
                 ),
               ),
             ),

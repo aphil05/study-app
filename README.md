@@ -1,16 +1,39 @@
-# study_app
+# 📚 Study App
 
-A new Flutter project.
+A simple and interactive **Flash Card App** designed to help users study efficiently using active recall. Users can flip cards and navigate between them.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🎥 Demo
 
-A few resources to get you started if this is your first Flutter project:
+### App Walkthrough  
+![Study App Walkthrough gif](studyapp.gif)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🖼️ Screenshots
+
+### Make Study Sets 
+![Flash Card Screen](createsets.png)
+
+
+### Test Your Knowledge  
+![Flash Card Answer](flashcardpage.png)
+
+---
+
+## ✨ Features
+
+- Organize flash cards by subject
+- View flash cards one at a time  
+- Flip cards to reveal answers  
+- Navigate between cards (Next / Previous)  
+
+---
+
+## 🛠️ Built With
+
+- Flutter  
+- Dart  
+
+---

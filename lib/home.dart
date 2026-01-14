@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("home page"),
+        title: const Text("Home Page"),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
             children: [
               const SizedBox(height: 12),
 
-              // Create new set - white background
+              // Create new set / white background
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -93,12 +93,15 @@ class _HomeState extends State<Home> {
                   children: [
                     Expanded(
                       child: TextField(
-                        controller: setNameController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Name your set",
+                          controller: setNameController,
+                          style: const TextStyle(color: Colors.black),
+                          cursorColor: Colors.black,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Name your set",
+                            hintStyle: TextStyle(color: Colors.black54),
+                          ),
                         ),
-                      ),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
