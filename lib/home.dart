@@ -50,51 +50,125 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("home page"),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
+      extendBodyBehindAppBar: true,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.purple.shade900,
+          gradient: RadialGradient(
+            center: const Alignment(0, -0.2),
+            radius: 0.9,
+            colors: [
+              const Color.fromARGB(255, 232, 160, 247),
+              const Color.fromARGB(255, 80, 0, 146),
+            ],
+            stops: const [0.0, 1.0],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 12),
 
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsetsGeometry.all(12),
-            child: TextField(
-              controller: setNameController,
-              decoration: InputDecoration(
-                labelText: "Name your set",
-                hintText: "name",
+              // Create new set - white background
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.15),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    )
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: setNameController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Name your set",
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: createNewSet,
+                      child: const Text("Create"),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: createNewSet,
-            child: const Text("create new set"),
-          ),
- Container(
-decoration: BoxDecoration(
-  image: DecorationImage(
-    image: AssetImage('images/purple aura background.jpg'),
-    fit: BoxFit.cover,),
-),
-),
 
-          Expanded(
-            child: ListView.builder(
-              itemCount: sets.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(sets[index].name),
-                  trailing: const Icon(Icons.arrow_forward),
-                  onTap: () {
-                    // later: navigate to flash_card_page
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SetPage()),
+              const SizedBox(height: 8),
+
+              // Existing sets list - centered rectangular black cards
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  itemCount: sets.length,
+                  itemBuilder: (context, index) {
+                    return Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SetPage()),
+                          );
+                        },
+                        child: Container(
+                          width: 340,
+                          height: 84,
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.4),
+                                blurRadius: 10,
+                                offset: const Offset(0, 6),
+                              )
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                sets[index].name,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const Icon(Icons.arrow_forward, color: Colors.white),
+                            ],
+                          ),
+                        ),
+                      ),
                     );
                   },
-                );
-              },
-            ),
-           ),
-        ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
